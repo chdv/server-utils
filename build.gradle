@@ -1,0 +1,55 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+project.group = 'com.dch.commons'
+project.version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+test {
+    useTestNG()
+}
+
+dependencies {
+    compile 'javax:javaee-api:7.0'
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    compile 'org.springframework:spring-core:4.1.7.RELEASE'
+    compile 'org.springframework.data:spring-data-mongodb:1.7.1.RELEASE'
+    compile 'org.mongodb:mongo-java-driver:3.0.3'
+    compile 'org.hibernate:hibernate-core:4.3.9.Final'
+    compile 'commons-beanutils:commons-beanutils:1.9.2'
+    compile 'com.rabbitmq:amqp-client:3.5.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.0'
+
+    testCompile 'mysql:mysql-connector-java:5.1.36'
+    testCompile 'org.hibernate:hibernate-entitymanager:4.3.9.Final'
+    testCompile 'ch.qos.logback:logback-classic:1.1.3'
+    testCompile 'org.slf4j:jcl-over-slf4j:1.7.7'
+    testCompile 'org.slf4j:jul-to-slf4j:1.7.12'
+    testCompile 'org.testng:testng:6.9.4'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+    testCompile 'org.powermock:powermock-module-testng:1.6.2'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.2'
+    testCompile 'org.glassfish.jersey.core:jersey-client:2.21'
+    testCompile 'org.glassfish:json:1.0.4'
+    testCompile 'org.glassfish:javax.json:1.0.4'
+}
+
+jar {
+    manifest {
+        attributes("Dependencies":
+                "org.mongodb.mongo-java-driver:main, " +
+                        "org.mongodb.bson:main, " +
+                        "org.springframework.spring-data-mongodb:main, " +
+                        "org.springframework:main, " +
+                        "com.rabbitmq.ampqclient:main, " +
+                        "org.springframework.spring-data-commons:main, " +
+                        "org.apache.commons.beanutils:main"
+        )
+    }
+}
