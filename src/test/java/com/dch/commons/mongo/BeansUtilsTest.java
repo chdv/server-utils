@@ -12,7 +12,6 @@ public class BeansUtilsTest {
 
 //    @Test
     public void test() throws InterruptedException {
-//        logger.debug(BeansUtils.getObjectMap(new Citizen()).toString());
         Thread.sleep(100);
     }
 }

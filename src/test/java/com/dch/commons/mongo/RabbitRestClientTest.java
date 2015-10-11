@@ -14,8 +14,7 @@ public class RabbitRestClientTest {
 //    @Test
     public void test() throws InterruptedException {
         RabbitRestClient client = new RabbitRestClient();
-//        RabbitRestClient client = new RabbitRestClient("http://127.0.0.1:15672", "emp", "emp");
-        logger.debug("{}", client.getQueues().findByName("Pxl.DataHub.NewEntity").getMessagesCount());
+        logger.debug("{}", client.getQueues().findByName("queue").getMessagesCount());
         Thread.sleep(100);
     }
 
